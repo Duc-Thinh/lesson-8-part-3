@@ -1,0 +1,30 @@
+a(href="/books/create") New 
+br
+a(href="/transactions") Transactions
+hr
+form(action="/users", method="POST")
+  input(type="text", name="user", placeholder="Name user")
+  button create
+form(action="/books", method='GET')
+  input(type="text", name='q', placeholder="Title book")
+  button Search
+ul
+label Users
+if lists
+  each user in lists
+    li
+      span= user.user
+      span &nbsp
+      a(href="/change/"+user.id)  Change
+      span &nbsp
+      a(href="/users/"+user.id)  Delete
+ul
+label Books
+if list
+  each book in list
+    li
+      span= book.title
+      span="-" + book.des
+      span &nbsp
+      a(href="/books/"+book.id)  Delete
+
